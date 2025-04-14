@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}List{% endblock %}
+
+{% block content %}
+<div class="posts-container">
+    {% for p in posts %}
+    <div class="post-card">
+        <h1>{{ p.title }}</h1>
+        <h1>{{ p.context }}</h1>
+        <h1>{{ p.author }}</h1>
+        <h1>{{ p.created_at }}</h1>
+    </div>
+    {% empty %}
+    <p>Postlar topilmadi!</p>
+    {% endfor %}
+</div>
+{% endblock %}

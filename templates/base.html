@@ -17,7 +17,7 @@
             min-height: 100vh;
         }
         nav {
-            background-color: #333;
+            background-color: darkblue;
             padding: 10px 0;
             text-align: center;
         }
@@ -39,20 +39,44 @@
         nav ul li a:hover {
             background-color: #555;
         }
-
         .content {
             flex: 1;
             padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: start;
         }
-
+        .posts-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            width: 100%;
+            max-width: 1200px;
+        }
+        .post-card {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 16px;
+            width: 300px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .post-card:hover {
+            transform: translateY(-5px);
+        }
+        .post-card h1 {
+            font-size: 20px;
+            margin: 10px 0;
+            color: darkblue;
+        }
         footer {
-            background-color: #333;
+            background-color: darkblue;
             color: white;
             text-align: center;
             padding: 15px 0;
-            position: relative;
-            bottom: 0;
-            width: 100%;
+            margin-top: auto;
         }
     </style>
 </head>
@@ -63,13 +87,13 @@
         {% for m in menu %}
             <li><a href="#">{{ m }}</a></li>
         {% endfor %}
+                    <li><a href="{% url 'post-list' %}">Post </a></li>
+
     </ul>
 </nav>
 
 <div class="content">
-    {% block content %}
-    <!-- Sahifa kontenti shu yerda paydo bo‘ladi -->
-    {% endblock %}
+    {% block content %}{% endblock %}
 </div>
 
 <footer>
